@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------------
-// node.js starter application for Bluemix
+// node.js starter application for Bluemix - EDMS
 //------------------------------------------------------------------------------
 
 // This application uses express as its web server
