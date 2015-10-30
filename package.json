@@ -1,17 +1,36 @@
 {
-	"name": "NodejsStarterApp",
-	"version": "0.0.1",
-	"description": "A sample nodejs app for Bluemix",
-	"scripts": {
-		"start": "node app.js"
-	},
-	"dependencies": {
-		"express": "4.12.x",
-		"cfenv": "1.0.x",
-		"jade": "1.11.0"
-	},
-	"repository": {},
-	"engines": {
-		"node": "0.12.x"
-	} 
+  "name": "EDMS",
+  "version": "0.0.1",
+  "description": "A sample nodejs CRUD app with authentication and file manipulation",
+  "autor": {
+    "name": "Rafael Teixeira da Costa",
+    "email": "rafalevita@gmail.com"
+  },
+  "keywords": [
+    "mongodb",
+    "session",
+    "xls",
+    "crud",
+    "jade",
+    "auth"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "cfenv": "1.0.x",
+    "client-sessions": "^0.7.0",
+    "debug": "^2.2.0",
+    "express": "4.12.x",
+    "formidable": "^1.0.17",
+    "jade": "1.11.0",
+    "mongoose": "4.2.1",
+    "node-xlsx": "^0.6.0"
+  },
+  "repository": {},
+  "engines": {
+    "node": "0.12.x"
+  }
 }

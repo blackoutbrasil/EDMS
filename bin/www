@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('IBM-EDMS:server');
+var debug = require('debug')('EDMS:server');
 var http = require('http');
 var cfenv = require('cfenv');
 

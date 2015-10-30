@@ -3,10 +3,16 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
-}
-
 footer {
 	padding-bottom: 20px;
+}
+
+label.errmessage {
+	color: red;
+	font-style: italic;
+	font-weight: bolder;
+}
+
+.toright {
+	float: right;
 }

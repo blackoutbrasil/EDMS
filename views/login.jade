@@ -1,20 +1,24 @@
 extends layout
 
 block content
-	form(class="form-horizontal" method="post" type="submit")
-	fieldset
-		legend Login
-		div(class="form-group")
-			label(for="inputEmail" class="col-lg-2 control-label") User Name
-			div(class="col-lg-10")
-				input(class="form-control" id="inputEmail" placeholder="User Name" type="text")
+	br
+	form(class="form-horizontal" method="POST" action='/login')
+		fieldset
+			legend Login
+			div(class="form-group")
+				label(for="username" class="col-lg-2 control-label") User Name
+				div(class="col-lg-10")
+					input(class="form-control" id="username" name="username" placeholder="User Name" type="text")
+					
+			div(class="form-group")
+				label(for="password" class="col-lg-2 control-label") Password
+				div(class="col-lg-10")
+					input(class="form-control" id="password" name="password" placeholder="Password" type="password")
 				
-		div(class="form-group")
-			label(for="inputPassword" class="col-lg-2 control-label") Password
-			div(class="col-lg-10")
-				input(class="form-control" id="inputPassword" placeholder="Password" type="password")
+			div(class="form-group")
+				div(class="col-lg-10 col-lg-offset-2")
+					input(type="reset" class="btn btn-default" value="Cancel")
+					input(type="submit" class="btn btn-primary" value="Submit")
+					&nbsp;&nbsp;&nbsp;
+					a(href="/employees/new") New Signup
 			
-		div(class="form-group")
-			div(class="col-lg-10 col-lg-offset-2")
-				button(type="reset" class="btn btn-default") Cancel
-				button(type="submit" class="btn btn-primary") Submit

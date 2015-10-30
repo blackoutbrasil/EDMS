@@ -1,6 +1,10 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  a(href= link) Login
+	h1= title
+	if user
+		p.
+			Welcome, #{user.username}
+	else
+		a(href=link) Login
+		p

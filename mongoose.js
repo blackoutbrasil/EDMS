@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
+var appEnv = require('cfenv');
 
+var url = appEnv.url || "localhost";
+mongoose.connect('mongodb://' + url + '/edmsdb' );
 
-mongoose.connect('mongodb://' + require('cfenv').bind + '/test' )
-
-module.exports = router;
+module.exports = mongoose;
