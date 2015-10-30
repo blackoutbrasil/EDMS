@@ -1,0 +1,42 @@
+extends layout
+
+block content
+	form(class="form-horizontal" method="POST" action='/employees/new')
+		br
+		fieldset
+			legend New Employee
+			
+			div(class="form-group")
+				label(for="username" class="col-lg-2 control-label") User Name
+				div(class="col-lg-10")
+					input(class="form-control" id="username" name="username" placeholder="User Name" type="text")
+					
+			div(class="form-group")
+				label(for="firstname" class="col-lg-2 control-label") First Name
+				div(class="col-lg-10")
+					input(class="form-control" id="firstname" name="firstname" placeholder="First Name" type="text")
+			
+			div(class="form-group")
+				label(for="lastname" class="col-lg-2 control-label") Last Name
+				div(class="col-lg-10")
+					input(class="form-control" id="lastname" name="lastname" placeholder="Last Name" type="text")
+					
+			div(class="form-group")
+				label(for="email" class="col-lg-2 control-label") Email
+				div(class="col-lg-10")
+					input(class="form-control" id="email" name="email" placeholder="Email" type="email")
+			
+			div(class="form-group")
+				label(for="password" class="col-lg-2 control-label") Password
+				div(class="col-lg-10")
+					input(class="form-control" id="password" name="password" placeholder="Password" type="password")
+					
+			div(class="form-group")
+				label(for="rpassword" class="col-lg-2 control-label") Password
+				div(class="col-lg-10")
+					input(class="form-control" id="rpassword" name="rpassword" placeholder="Confirm Password" type="password")
+				
+			div(class="form-group")
+				div(class="col-lg-10 col-lg-offset-2")
+					input(type="reset" class="btn btn-default" value="Cancel")
+					input(type="submit" class="btn btn-primary" value="Submit")

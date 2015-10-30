@@ -1,0 +1,29 @@
+extends layout
+
+block content
+	form(class="form-horizontal" method="POST" action='/employees/change_pwd')
+		br
+		fieldset
+			legend Change Password
+			
+			input(type="hidden" value=employee._id name="id" id="id")
+			div(class="form-group")
+				label(for="old_pwd" class="col-lg-2 control-label") Old Password
+				div(class="col-lg-10")
+					input(class="form-control" id="old_pwd" name="old_pwd" placeholder="Old Password" type="password")
+					
+			div(class="form-group")
+				label(for="new_pwd" class="col-lg-2 control-label") New Password
+				div(class="col-lg-10")
+					input(class="form-control" id="new_pwd" name="new_pwd" placeholder="New Password" type="password")
+			
+			div(class="form-group")
+				label(for="confirm_pwd" class="col-lg-2 control-label") Last Name
+				div(class="col-lg-10")
+					input(class="form-control" id="confirm_pwd" name="confirm_pwd" placeholder="Confirm Password" type="password")
+					
+
+			div(class="form-group")
+				div(class="col-lg-10 col-lg-offset-2")
+					input(type="reset" class="btn btn-default" value="Cancel")
+					input(type="submit" class="btn btn-primary" value="Submit")

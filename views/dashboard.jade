@@ -1,0 +1,79 @@
+extends layout
+
+block additionalHeader
+	script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js")
+	script.
+		$(function(){
+			var $link = '';
+			var $method = '';
+			
+			$('#thetable input:button').on('click', function(e) {
+				$row = $(this).closest('tr');
+				$link = $row.find('input:hidden')[0].name;
+				
+				if(this.value.toLowerCase() === 'edit'){
+					$link = "/employees/edit/" + $link;
+					$method = 'GET';
+				} else if(this.value.toLowerCase() === 'delete'){
+					$link = "/employees/delete/" + $link;
+					$method = 'POST';
+				}
+				
+				$form = $('<form method="' + $method + '" action="' + $link + '"></form>');
+				$('body').append($form)
+				$form.submit();
+				
+			});
+		});
+block content
+	br
+	// Only admin user is able to see audit log option
+	if user.username === "admin"
+		strong
+			a(href="/employees/upload") Upload New Employees
+			
+	div(class="toright col-lg-3")
+		// Panel Options
+		div(class="panel panel-primary")
+			div(class="panel-heading")
+				h3(class="panel-title")
+			div(class="panel-body")
+				strong
+					a(href="/employees/view/" + user._id) View Profile
+				br
+				br
+				strong
+					a(href="/employees/edit/" + user._id) Edit Profile
+				br
+				br
+				strong
+					a(href="/employees/change_pwd/" + user._id) Change Password
+
+		// Only admin user is able to see audit log option
+		if user.username === "admin"
+			strong(class="toright")
+				a(href="#") View Audit Log
+
+					
+	// Employee table list
+	table#thetable(class="table table-striped table-hover ")
+		thead
+			tr
+				th #
+				th First Name
+				th Last Name
+				th Email
+				th 
+				th 
+		tbody
+			each emp, i in employees
+				tr
+					input(type="hidden" name=emp._id)
+					td #{i+1}
+					td #{emp.firstname}
+					td #{emp.lastname}
+					td #{emp.email}
+					td 
+						input(type="button" value="Edit")
+					td 
+						input(type="button" value="Delete")
