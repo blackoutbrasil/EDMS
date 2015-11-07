@@ -9,6 +9,7 @@ console.log(appEnv);
 
 var dbURI = 'mongodb://127.0.0.1:27017/' + 'edmsdb'; // For local testing
 
+console.log("process env: " + process.env);
 if (process.env.VCAP_SERVICES) {
   var env = JSON.parse(process.env.VCAP_SERVICES);
   console.log(env);
@@ -19,7 +20,7 @@ if (process.env.VCAP_SERVICES) {
 }
 
 // set up for mongoose connection
-var db = mongoose.connection;
+/*var db = mongoose.connection;
 db.on('connecting', function() {
     console.log('connecting');
 });
@@ -41,7 +42,7 @@ db.on('disconnected', function() {
     console.log('disconnected');
     console.log('dbURI is: '+dbURI);
     mongoose.connect(dbURI, {server:{auto_reconnect:true, socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 }}, replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } }});
-  });
+  });*/
 console.log('dbURI is: ' + dbURI);
 
 mongoose.connect(dbURI, {server:{auto_reconnect:true}});
