@@ -1,5 +1,5 @@
 /*eslint-env node */
-/*var mongoose = require('mongoose');
+var mongoose = require('mongoose');
 var cfenv = require('cfenv');
 
 var appEnv = cfenv.getAppEnv();
@@ -12,4 +12,4 @@ console.log(envVars);
 var url = appEnv.url || "localhost";
 mongoose.connect('mongodb://' + url + '/edmsdb' );
 
-module.exports = mongoose;*/
+module.exports = mongoose;
