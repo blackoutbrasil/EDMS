@@ -93,7 +93,12 @@ var appEnv = cfenv.getAppEnv();
 /**
  * Create HTTP server.
  */
-var server = http.createServer(app, function(req, res){
+var server = http.createServer(app);
+
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+server.listen(appEnv.port, appEnv.bind, function() {
 	console.log("........ CF.......... ");
 	console.log("#### Is Local: " + appEnv.isLocal);
 	console.log("#### Name: " + appEnv.name);
@@ -132,12 +137,7 @@ var server = http.createServer(app, function(req, res){
 	if (!count) {
 	        console.log('No environment variables for this app.\n');
 	}
-});
-
-/**
- * Listen on provided port, on all network interfaces.
- */
-server.listen(appEnv.port, appEnv.bind, function() {
+	
     console.log("server starting on " + appEnv.url);
 });
 server.on('error', onError);
