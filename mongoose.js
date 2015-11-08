@@ -5,7 +5,8 @@ var cfenv = require('cfenv');
 var appEnv = cfenv.getAppEnv();
 //var envVars = appEnv.getEnvVars();
 
-console.log("........ CF: " + appEnv.getServices());
+
+
 
 var dbURI = 'mongodb://127.0.0.1:27017/' + 'edmsdb'; // For local testing
 

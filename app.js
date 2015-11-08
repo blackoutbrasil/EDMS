@@ -93,7 +93,46 @@ var appEnv = cfenv.getAppEnv();
 /**
  * Create HTTP server.
  */
-var server = http.createServer(app);
+var server = http.createServer(app, function(req, res){
+	console.log("........ CF.......... ");
+	console.log("#### Is Local: " + appEnv.isLocal);
+	console.log("#### Name: " + appEnv.name);
+	console.log("#### Port: " + appEnv.port);
+	console.log("#### Bind: " + appEnv.bind);
+	console.log("#### URL: " + appEnv.url);
+	
+	var services = appEnv.getServices();
+	var count = 0;
+	for (var serviceName in services) {
+	        if (services.hasOwnProperty(serviceName)) {
+	                count++;
+	                var service = services[serviceName];
+	                console.log(service.name);
+	        }
+	}
+	if (!count) {
+	        console.log('No services are bound to this app.');
+	}
+	
+	// Get environment variables using my new functions for 
+	// environment var access
+	console.log('ENVIRONMENT VARIABLES\n');
+	console.log('----------------------------');
+	var envVars = process.env;
+	count = 0;
+	for (var key in envVars) {
+	        if (!envVars.hasOwnProperty || envVars.hasOwnProperty(key)) {
+	                if (key !== 'VCAP_SERVICES' && key !== 'VCAP_APPLICATION') {
+	                        count++;
+	                        var envVar = process.env[key]; // Could just do envVars[key], but want to exercise getEnvVar
+	                        console.log(key + ':' + envVar);
+	                }
+	        }
+	}
+	if (!count) {
+	        console.log('No environment variables for this app.\n');
+	}
+});
 
 /**
  * Listen on provided port, on all network interfaces.
