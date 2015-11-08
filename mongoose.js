@@ -5,11 +5,12 @@ var cfenv = require('cfenv');
 var appEnv = cfenv.getAppEnv();
 //var envVars = appEnv.getEnvVars();
 
-console.log(appEnv);
+console.log("........ CF: " + appEnv.getServices());
 
 var dbURI = 'mongodb://127.0.0.1:27017/' + 'edmsdb'; // For local testing
 
-console.log("process env: " + process.env);
+console.log("process env: " + JSON.parse(process.env));
+console.log("vcap: " + JSON.parse(process.env.VCAP_SERVICES));
 if (process.env.VCAP_SERVICES) {
   var env = JSON.parse(process.env.VCAP_SERVICES);
   console.log(env);
@@ -45,6 +46,7 @@ db.on('disconnected', function() {
   });*/
 console.log('dbURI is: ' + dbURI);
 
-mongoose.connect(dbURI, {server:{auto_reconnect:true}});
+//mongoose.connect(dbURI, {server:{auto_reconnect:true}});
+mongoose.connect(dbURI);
 
 module.exports = mongoose;
