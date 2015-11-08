@@ -7,6 +7,7 @@ var cfenv 		= require('cfenv');
 var debug 		= require('debug')('EDMS:server');
 var http 		= require('http');
 var session		= require('./session_init');
+var mongoose	= require('./mongoose');
 
 // routes
 var index 			= require('./routes/index');
@@ -38,6 +39,8 @@ app.use(function(req, res, next) {
 app.use(session.init);
 /* Verifies the user session */
 app.use(session.setUser);
+/* Initialize MongoDB */
+app.use(mongoose);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
