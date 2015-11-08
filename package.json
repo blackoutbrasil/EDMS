@@ -16,7 +16,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "start": "node www"
+    "start": "node app.js"
   },
   "dependencies": {
     "body-parser": "^1.14.1",
