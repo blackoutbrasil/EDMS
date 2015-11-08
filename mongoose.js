@@ -9,15 +9,20 @@ console.log("........ CF: " + JSON.parse(appEnv.getServices()));
 
 var dbURI = 'mongodb://127.0.0.1:27017/' + 'edmsdb'; // For local testing
 
-console.log("process env: " + JSON.parse(process.env));
-console.log("vcap: " + JSON.parse(process.env.VCAP_SERVICES));
-if (process.env.VCAP_SERVICES) {
-  var env = JSON.parse(process.env.VCAP_SERVICES);
-  console.log(env);
-  if (env.mongolab) { // for mongolabs
-    var ml = env.mongolab;
-	dbURI = ml[0].credentials.uri;
-  }
+if (process) {
+	console.log(".... process ..............");
+	if (process.env) {
+		console.log(".... process.env ..............");
+		if (process.env.VCAP_SERVICES) {
+			console.log(".... VCAP ..............");
+			var env = JSON.parse(process.env.VCAP_SERVICES);
+			console.log(env);
+			if (env.mongolab) { // for mongolabs
+				var ml = env.mongolab;
+				dbURI = ml[0].credentials.uri;
+			}
+		}
+	}
 }
 
 // set up for mongoose connection

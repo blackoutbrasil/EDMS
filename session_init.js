@@ -1,3 +1,4 @@
+/*eslint-env node */
 // Dependencies
 var session 	= require('client-sessions');
 
