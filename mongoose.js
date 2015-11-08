@@ -3,28 +3,22 @@ var mongoose = require('mongoose');
 var cfenv = require('cfenv');
 
 var appEnv = cfenv.getAppEnv();
-//var envVars = appEnv.getEnvVars();
-
-
+console.log('####### mongodb-edms #########');
+console.log(appEnv.getService('mongodb-edms'));
 
 
 var dbURI = 'mongodb://127.0.0.1:27017/' + 'edmsdb'; // For local testing
 
-if (process) {
-	console.log(".... process ..............");
-	if (process.env) {
-		console.log(".... process.env ..............");
-		if (process.env.VCAP_SERVICES) {
-			console.log(".... VCAP ..............");
-			var env = JSON.parse(process.env.VCAP_SERVICES);
-			console.log(env);
-			if (env.mongolab) { // for mongolabs
-				var ml = env.mongolab;
-				dbURI = ml[0].credentials.uri;
-			}
-		}
+/*if (appEnv.getService('mongodb-edms')) {
+	console.log("MongoDB service found........................");
+	
+	if (env.mongolab) { // for mongolabs
+		var ml = env.mongolab;
+		dbURI = ml[0].credentials.uri;
 	}
-}
+} else {
+	console.log("MongoDB Service not found....................");
+}*/
 
 // set up for mongoose connection
 /*var db = mongoose.connection;

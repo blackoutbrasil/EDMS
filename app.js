@@ -99,7 +99,7 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 server.listen(appEnv.port, appEnv.bind, function() {
-	console.log("........ CF.......... ");
+	console.log("........ CLOUD FOUNDRY VARIABLES .......... ");
 	console.log("#### Is Local: " + appEnv.isLocal);
 	console.log("#### Name: " + appEnv.name);
 	console.log("#### Port: " + appEnv.port);
@@ -107,6 +107,7 @@ server.listen(appEnv.port, appEnv.bind, function() {
 	console.log("#### URL: " + appEnv.url);
 	
 	var services = appEnv.getServices();
+	console.log(services['mongodb-edms']);
 	var count = 0;
 	for (var serviceName in services) {
 	        if (services.hasOwnProperty(serviceName)) {
@@ -121,7 +122,7 @@ server.listen(appEnv.port, appEnv.bind, function() {
 	
 	// Get environment variables using my new functions for 
 	// environment var access
-	console.log('ENVIRONMENT VARIABLES\n');
+	/*console.log('ENVIRONMENT VARIABLES\n');
 	console.log('----------------------------');
 	var envVars = process.env;
 	count = 0;
@@ -136,7 +137,7 @@ server.listen(appEnv.port, appEnv.bind, function() {
 	}
 	if (!count) {
 	        console.log('No environment variables for this app.\n');
-	}
+	}*/
 	
     console.log("server starting on " + appEnv.url);
 });
