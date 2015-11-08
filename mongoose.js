@@ -21,7 +21,7 @@ if (ml) {
 }
 
 // set up for mongoose connection
-/*var db = mongoose.connection;
+var db = mongoose.connection;
 db.on('connecting', function() {
     console.log('connecting');
 });
@@ -43,10 +43,9 @@ db.on('disconnected', function() {
     console.log('disconnected');
     console.log('dbURI is: '+dbURI);
     mongoose.connect(dbURI, {server:{auto_reconnect:true, socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 }}, replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } }});
-  });*/
+  });
 console.log('dbURI is: ' + dbURI);
 
-//mongoose.connect(dbURI, {server:{auto_reconnect:true}});
-mongoose.connect(dbURI);
+mongoose.connect(dbURI, {server:{auto_reconnect:true}});
 
 module.exports = mongoose;

@@ -39,8 +39,6 @@ app.use(function(req, res, next) {
 app.use(session.init);
 /* Verifies the user session */
 app.use(session.setUser);
-/* Initialize MongoDB */
-app.use(mongoose);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
