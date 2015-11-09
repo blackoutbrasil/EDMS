@@ -1,17 +1,55 @@
-This README.md file is displayed on your project page. You should edit this 
-file to describe your project, including instructions for building and 
-running the project, pointers to the license under which you are making the 
-project available, and anything else you think would be useful for others to
-know.
+# EDMS
 
-We have created an empty license.txt file for you. Well, actually, it says,
-"<Replace this text with the license you've chosen for your project.>" We 
-recommend you edit this and include text for license terms under which you're
-making your code available. A good resource for open source licenses is the 
-[Open Source Initiative](http://opensource.org/).
+This app is intended to be a sample app for Node.js beginners.  
+This sample runs on Bluemix environment
 
-Be sure to update your project's profile with a short description and 
-eye-catching graphic.
+The app is basically a CRUD app for employee management using `Express` and `MongoDB` with `Mongoose`, between other things, including:
+	
+  * Create, remove, update and delete an employee (CRUD)
+  * Login with session handling
+  * Features that appear just for admin user
+    * Add new employee by uploading a excel file
+    * View audit log (not implemented, so feel free...)
+  * Dashboard view
+  * Sign up
 
-Finally, consider defining some sprints and work items in Track & Plan to give 
-interested developers a sense of your cadence and upcoming enhancements.
+## Installation
+
+```sh
+$ npm install
+```
+
+## Quick Start
+This sample runs on Bluemix, however if you run it locally, don't forget to initialize MongoDB.
+
+```sh
+$ mongod -dbpath <your_mongodb_path>\data --journal
+```
+
+And then:
+
+```sh
+$ node app.js
+```
+
+
+This app is using the following modules:
+
+  * [body-parser](https://github.com/expressjs/body-parser/blob/master/README.md)
+  * [client-sessions](https://github.com/mozilla/node-client-sessions/blob/master/README.md)
+  * [formidable](https://github.com/felixge/node-formidable/blob/master/Readme.md)
+  * [fs-extra](https://github.com/jprichardson/node-fs-extra/blob/master/README.md)
+  * [express](https://github.com/expressjs)
+  * [mongoose](https://github.com/Automattic/mongoose/blob/master/README.md)
+  * [node-xlsx](https://github.com/mgcrea/node-xlsx/blob/master/readme.md)
+
+
+## Authors
+
+**Rafael Teixeira da Costa**
+
++ http://github.com/blackoutbrasil
+
+## License
+
+MIT
