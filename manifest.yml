@@ -1,8 +1,8 @@
 applications:
 - path: .
   memory: 256M
-  instances: 2
+  instances: 1
   domain: mybluemix.net
-  name: EDMS
-  host: edms
+  name: IBM-EDMS
+  host: ibm-edms
   disk_quota: 1024M
