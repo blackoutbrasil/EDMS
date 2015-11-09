@@ -26,7 +26,7 @@ router.post('/', function(req, res){
 			{_id: req.body.id}, 
 			{ $set: { firstname: req.body.firstname, lastname: req.body.lastname, email: req.body.email }}, 
 			function(err){
-				if(err){ res.render("error", {message: "Error on update: " + err});
+				if(err){ res.render("error", {message: "Error on update: " + err} );}
 				else {console.log("Document Updated. "); }
 			});
 	
