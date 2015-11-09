@@ -7,7 +7,7 @@ var cfenv 		= require('cfenv');
 var debug 		= require('debug')('EDMS:server');
 var http 		= require('http');
 var session		= require('./session_init');
-var mongoose	= require('./mongoose');
+var db_init		= require('./db)init');
 
 // routes
 var index 			= require('./routes/index');

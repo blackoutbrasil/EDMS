@@ -1,5 +1,5 @@
+/*eslint-env node */
 var express = require('express');
-var mongoose = require('mongoose');
 var router = express.Router();
 
 //models
@@ -10,7 +10,7 @@ var employee = require('../models/employee');
  */
 router.get('/:id', function(req, res){
 	employee.findOne({_id: req.params.id}, function(err, emp){
-		if(err){ res.render("error")}
+		if(err){ res.render("error");}
 		else {
 			console.log(emp);
 			res.render("edit_employee", {employee: emp});
@@ -26,7 +26,7 @@ router.post('/', function(req, res){
 			{_id: req.body.id}, 
 			{ $set: { firstname: req.body.firstname, lastname: req.body.lastname, email: req.body.email }}, 
 			function(err){
-				if(err){ res.render("error", message = "Error on update: " + err)}
+				if(err){ res.render("error", {message: "Error on update: " + err});
 				else {console.log("Document Updated. "); }
 			});
 	

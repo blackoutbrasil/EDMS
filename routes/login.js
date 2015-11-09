@@ -1,3 +1,4 @@
+/*eslint-env node */
 var express = require('express');
 var router = express.Router();
 
@@ -14,8 +15,6 @@ router.post('/', function(req, res, next) {
 	var username = req.body.username;
 	var password = req.body.password;
 	
-	console.log(username +" - "+ password)
-	
 	employee.findOne({username: username, password: password}, function(err, emp){
 		if(err) res.json(err.errors.message);
 		else {
@@ -25,7 +24,7 @@ router.post('/', function(req, res, next) {
 				req.session.user = emp;
 				res.redirect("/employees/dashboard");
 			} else {
-				res.render("login", { title: "EDMS", message: "Login Failed" })
+				res.render("login", { title: "EDMS", message: "Login Failed" });
 			}
 		}
 	});

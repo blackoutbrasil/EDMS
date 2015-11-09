@@ -1,3 +1,4 @@
+/*eslint-env node */
 var express = require('express');
 
 var router = express.Router();
@@ -10,7 +11,7 @@ var employee = require('../models/employee');
  */
 router.get('/', function(req, res) {
 	employee.find({}, function(err, emp){
-		if(err){ res.json(err) }
+		if(err){ res.json(err); }
 		else res.json(emp);
 	});
 });
@@ -29,7 +30,6 @@ router.get('/findEmpByNameAndPwd', function(req, res){
  * Returns employee by its id
  */
 router.get('/findEmpById/:id', function(req, res){
-//	var ObjectId = require('mongoose').Schema.Types.ObjectId;
 	employee.find({_id: new require('mongoose').Schema.Types.ObjectId(req.params.id)}, function(err, emp){
 		if(err) {
 			res.json(err);

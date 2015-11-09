@@ -1,3 +1,4 @@
+/*eslint-env node */
 var express = require('express');
 var router = express.Router();
 
@@ -9,9 +10,9 @@ var employee = require('../models/employee');
  */
 router.get('/', function(req, res, next) {
 	employee.find({}, function(err, emp){
-		if(err){ res.render("error") }
+		if(err){ res.render("error"); }
 		else {
-			console.log("Rendering dashboard page...")
+			console.log("Rendering dashboard page...");
 			res.render("dashboard", { title: "EDMS", employees: emp, user: req.session.user});
 		}
 	});

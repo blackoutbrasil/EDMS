@@ -1,3 +1,4 @@
+/*eslint-env node */
 var express = require('express');
 var formidable = require('formidable'); //middleware for form/file upload
 var path = require('path');     //used for file path
@@ -41,9 +42,8 @@ router.post('/', function(req, res, next) {
 	        var file = path.join(filePath, "public", files.fileUploaded.name);
 	        var employees = xlsx.parse(fs.readFileSync(file)); // parses a buffer
 
-	        var returnErrorMessage = "";
 	        var empList = employees[0].data;
-	        for(i=1; i < empList.length; ++i){ // starts in 1 because the first position of the file [0] is the header content
+	        for(var i=1; i < empList.length; ++i){ // starts in 1 because the first position of the file [0] is the header content
 	        	// instantiate the employee
 	        	new employee({
         		_id 	 : new mongoose.Types.ObjectId,

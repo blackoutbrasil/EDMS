@@ -1,3 +1,4 @@
+/*eslint-env node */
 var express = require('express');
 var mongoose = require('mongoose');
 
@@ -15,7 +16,7 @@ router.get('/', function(req, res) {
 router.post('/', function(req, res) {
 	// Validates passwords 
 	if(req.body.rpassword === req.body.password){
-		id = new mongoose.Types.ObjectId;
+		var id = new mongoose.Types.ObjectId;
 		// instantiate the employee
 		new employee({
 			_id 	 : id,
